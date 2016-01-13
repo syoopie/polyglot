@@ -27,4 +27,6 @@ programming languages supported in Coursemology.
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'codeclimate-test-reporter'
+
+  spec.add_dependency 'activesupport', '~> 4.2.0', '>= 4.2.2'
 end
