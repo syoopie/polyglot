@@ -1,7 +1,15 @@
+require 'active_support/all'
 require 'coursemology/polyglot/version'
 
-module Coursemology
-  module Polyglot
-    # Your code goes here...
+module Coursemology::Polyglot
+  extend ActiveSupport::Autoload
+
+  eager_autoload do
+    autoload :Language
+  end
+
+  def self.eager_load!
+    super
+    Coursemology::Polyglot::Language.eager_load!
   end
 end
