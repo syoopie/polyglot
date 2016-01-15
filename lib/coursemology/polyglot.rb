@@ -6,6 +6,7 @@ module Coursemology::Polyglot
 
   eager_autoload do
     autoload :Language
+    autoload :ConcreteLanguage
   end
 
   def self.eager_load!
