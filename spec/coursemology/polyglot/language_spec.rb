@@ -9,6 +9,11 @@ RSpec.describe Coursemology::Polyglot::Language do
     concrete_language DISPLAY_NAME
   end
 
+  class self::DummyLanguageWithDockerImage < self::DummyLanguage
+    DOCKER_IMAGE = 'dummy-docker'
+    concrete_language 'Dummy Docker Image Language', docker_image: DOCKER_IMAGE
+  end
+
   describe '.concrete_language' do
     it 'sets the correct display name' do
       expect(self.class::DummyLanguage.display_name).to eq(self.class::DummyLanguage::DISPLAY_NAME)
@@ -22,6 +27,20 @@ RSpec.describe Coursemology::Polyglot::Language do
     it 'extends Coursemology::Polyglot::ConcreteLanguage::ClassMethods' do
       expect(self.class::DummyLanguage).to \
         be_a_kind_of(Coursemology::Polyglot::ConcreteLanguage::ClassMethods)
+    end
+
+    context 'when an explicit Docker image name is specified' do
+      it 'returns the explicit image name' do
+        expect(self.class::DummyLanguageWithDockerImage.docker_image).to \
+          eq(self.class::DummyLanguageWithDockerImage::DOCKER_IMAGE)
+      end
+    end
+
+    context 'when no explicit Docker image is specified' do
+      it 'generates an image name' do
+        expect(self.class::DummyLanguage.docker_image).to \
+          eq('r_spec-example_groups-coursemology_polyglot_language-dummy_language')
+      end
     end
   end
 
