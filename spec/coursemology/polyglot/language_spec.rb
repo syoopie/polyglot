@@ -6,12 +6,12 @@ RSpec.describe Coursemology::Polyglot::Language do
   end
 
   class self::DummyLanguage < self::AbstractLanguage
-    DISPLAY_NAME = 'Dummy 0.1'
+    DISPLAY_NAME = 'Dummy 0.1'.freeze
     concrete_language DISPLAY_NAME
   end
 
   class self::DummyLanguageWithDockerImage < self::DummyLanguage
-    DOCKER_IMAGE = 'dummy-docker'
+    DOCKER_IMAGE = 'dummy-docker'.freeze
     concrete_language 'Dummy Docker Image Language', docker_image: DOCKER_IMAGE
   end
 
