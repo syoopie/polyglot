@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This module is extended by the language's singleton class when the Language can be directly used
 # by the user.
 #

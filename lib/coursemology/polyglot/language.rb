@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 if defined?(ActiveRecord)
   # :nocov:
   # TODO: This is for compatibility with the Web application. A future refactoring might be able
