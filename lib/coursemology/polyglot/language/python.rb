@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class Coursemology::Polyglot::Language::Python < Coursemology::Polyglot::Language
+  syntax_highlighter 'python'
+
   class Python2Point7 < Coursemology::Polyglot::Language::Python
     concrete_language 'Python 2.7', docker_image: 'python:2.7'
   end

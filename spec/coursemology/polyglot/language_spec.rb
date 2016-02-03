@@ -57,21 +57,97 @@ RSpec.describe Coursemology::Polyglot::Language do
     end
   end
 
+  describe '.syntax_highlighter' do
+    context 'when a default is given' do
+      context 'when nothing is explicit specified' do
+        class self::SyntaxHighlighterTestClass < Coursemology::Polyglot::Language
+          MODE = 'test'.freeze
+          syntax_highlighter MODE
+        end
+
+        subject { self.class::SyntaxHighlighterTestClass }
+        it 'uses the argument for Rouge' do
+          expect(subject.rouge_lexer).to eq(subject::MODE)
+        end
+
+        it 'uses the argument for Ace' do
+          expect(subject.ace_mode).to eq(subject::MODE)
+        end
+      end
+
+      context 'when rouge is explicitly specified' do
+        class self::SyntaxHighlighterTestClass < Coursemology::Polyglot::Language
+          MODE = 'test'.freeze
+          ROUGE_LEXER = 'rouge'.freeze
+          syntax_highlighter MODE, rouge: ROUGE_LEXER
+        end
+
+        subject { self.class::SyntaxHighlighterTestClass }
+        it 'uses the argument for Rouge' do
+          expect(subject.rouge_lexer).to eq(subject::ROUGE_LEXER)
+        end
+
+        it 'uses the default for Ace' do
+          expect(subject.ace_mode).to eq(subject::MODE)
+        end
+      end
+
+      context 'when Ace is explicitly specified' do
+        class self::SyntaxHighlighterTestClass < Coursemology::Polyglot::Language
+          MODE = 'test'.freeze
+          ACE_MODE = 'ace'.freeze
+          syntax_highlighter MODE, ace: ACE_MODE
+        end
+
+        subject { self.class::SyntaxHighlighterTestClass }
+        it 'uses the default for Rouge' do
+          expect(subject.rouge_lexer).to eq(subject::MODE)
+        end
+
+        it 'uses the argument for Ace' do
+          expect(subject.ace_mode).to eq(subject::ACE_MODE)
+        end
+      end
+    end
+
+    context 'when no default is given' do
+      context 'when no explicit Rouge lexer is specified' do
+        it 'raises an ArgumentError' do
+          expect do
+            class self.class::SyntaxHighlighterTestClass < Coursemology::Polyglot::Language
+              syntax_highlighter ace: 'test'
+            end
+          end.to raise_error(ArgumentError)
+        end
+      end
+
+      context 'when no explicit Ace mode is specified' do
+        it 'raises an ArgumentError' do
+          expect do
+            class self.class::SyntaxHighlighterTestClass < Coursemology::Polyglot::Language
+              syntax_highlighter rouge: 'test'
+            end
+          end.to raise_error(ArgumentError)
+        end
+      end
+    end
+  end
+
   describe '.display_name' do
     it 'fails with NotImplementedError' do
       expect { subject.class.display_name }.to raise_error(NotImplementedError)
     end
   end
 
-  describe '.stylesheets' do
+  describe '.rouge_lexer' do
     it 'fails with NotImplementedError' do
-      expect { subject.class.stylesheets }.to raise_error(NotImplementedError)
+      expect { subject.class.rouge_lexer }.to raise_error(NotImplementedError)
     end
   end
 
-  describe '.javascript' do
+  describe '.ace_mode' do
     it 'fails with NotImplementedError' do
-      expect { subject.class.javascript }.to raise_error(NotImplementedError)
+      expect { subject.class.ace_mode }.to raise_error(NotImplementedError)
     end
   end
 end

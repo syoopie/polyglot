@@ -46,6 +46,7 @@ class Coursemology::Polyglot::Language
 
     extend concrete_class_methods
   end
+  private_class_method :concrete_language
 
   # Determines the concrete language subclasses of this language.
   #
@@ -56,6 +57,31 @@ class Coursemology::Polyglot::Language
     end
   end
 
+  # The name of the lexer or mode to use with a given library. This is inherited by classes.
+  #
+  # @param [String|nil] default The default lexer/mode to use for each library.
+  # @param [String] rouge The overridden lexer to use for Rouge. This is optional and will
+  #   default to +default+
+  # @param [String] ace The overridden mode to use for Ace. This is optional and will
+  #   default to +default+
+  # @raise [ArgumentError] When no default is specified and the Rouge lexer or Ace mode is not
+  #   specified.
+  def self.syntax_highlighter(default = nil, rouge: default, ace: default)
+    fail ArgumentError unless rouge && ace
+
+    syntax_highlighter_class_methods = Module.new do
+      define_method(:rouge_lexer) { rouge }
+      define_method(:ace_mode) { ace }
+    end
+    extend syntax_highlighter_class_methods
+
+    syntax_highlighter_instance_methods = Module.new do
+      delegate :rouge_lexer, :ace_mode, to: :class
+    end
+    include syntax_highlighter_instance_methods
+  end
+  private_class_method :syntax_highlighter
+
   # Gets the display name of the language.
   #
   # @abstract
@@ -64,23 +90,19 @@ class Coursemology::Polyglot::Language
     fail NotImplementedError
   end
 
-  # The stylesheets that need to be packaged with the rest of the application.
-  #
-  # This should include the Rouge/Pygments stylesheet for formatting code.
+  # The Rouge lexer to use with this language.
   #
   # @abstract
-  # @return [Array<String>]
-  def self.stylesheets
+  # @return [String]
+  def self.rouge_lexer
     fail NotImplementedError
   end
 
-  # The script files that need to be packaged with the rest of the application.
-  #
-  # This should include the Ace mode for the language.
+  # The Ace mode to use with this language.
   #
   # @abstract
-  # @return [Array<String>]
-  def self.javascript
+  # @return [String]
+  def self.ace_mode
     fail NotImplementedError
   end
 end
