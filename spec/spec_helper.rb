@@ -19,6 +19,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'coverage_helper'
+require 'rails'
 require 'coursemology/polyglot'
 
 RSpec.configure do |config|
@@ -96,6 +97,6 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 
   config.before(:suite) do
-    Coursemology::Polyglot.eager_load!
+    Coursemology::Polyglot::Engine.eager_load!
   end
 end
