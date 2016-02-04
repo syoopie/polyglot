@@ -3,3 +3,17 @@
 
 This is the library common between the web application and the evaluator for determining the 
 programming languages supported in Coursemology.
+
+## Usage
+In your `Gemfile`:
+```ruby
+gem 'coursemology-polyglot'
+```
+
+Then, in your application:
+```ruby
+Coursemology::Polyglot.eager_load!
+```
+
+The Polyglot library needs to be eager loaded so that it knows which languages are defined. 
+Otherwise, the list of `concrete_languages` will be empty.
