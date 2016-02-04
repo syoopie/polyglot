@@ -1,0 +1,5 @@
+<%
+Coursemology::Polyglot::Language.concrete_languages.map(&:ace_mode).uniq.each do |ace_mode|
+  require_asset "ace/mode-#{ace_mode}"
+end
+%>

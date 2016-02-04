@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'active_support/all'
 require 'coursemology/polyglot/version'
+require 'coursemology/polyglot/engine' if defined?(Rails)
 
 module Coursemology::Polyglot
   extend ActiveSupport::Autoload

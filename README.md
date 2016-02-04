@@ -5,6 +5,19 @@ This is the library common between the web application and the evaluator for det
 programming languages supported in Coursemology.
 
 ## Usage
+### With Rails
+The library works with Railties, so there is no special configuration.
+
+The gem provides a JavaScript asset which can be used to require all Ace modes that are needed by
+all concrete languages. In your application manifest, include this:
+
+```javascript
+//= require coursemology/polyglot/ace-modes
+```
+
+Ensure that Ace is found within the `ace` directory (i.e. `ace/mode-python.js` etc.)
+
+### Without Rails
 In your `Gemfile`:
 ```ruby
 gem 'coursemology-polyglot'
