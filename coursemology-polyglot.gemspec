@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
 Common definitions shared between the web application and the evaluator for determining the
 programming languages supported in Coursemology.
   DESC
-  spec.homepage      = 'http://coursemology.org'
+  spec.homepage      = 'https://github.com/Coursemology/polyglot'
   spec.files         = `git ls-files -z`.split("\x0").
                        reject { |f| f.match(/^(test|spec|features)\//) }
   spec.executables   = spec.files.grep(/^bin\//) { |f| File.basename(f) }
