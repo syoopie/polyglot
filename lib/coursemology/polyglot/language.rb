@@ -26,6 +26,7 @@ class Coursemology::Polyglot::Language
 
   eager_autoload do
     autoload :Python
+    autoload :JavaScript
   end
 
   # Marks the current class as a concrete language.
