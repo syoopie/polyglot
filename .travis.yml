@@ -11,5 +11,8 @@ matrix:
 bundler_args: "--jobs=3 --retry=3"
 cache: bundler
 
+after_script:
+    - bundle exec codeclimate-test-reporter
+
 before_install:
   - gem update bundler

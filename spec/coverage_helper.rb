@@ -50,11 +50,6 @@ if ENV['CI']
     Coveralls.wear!
   end
 
-  # Code Climate
-  CoverageHelper.load('codeclimate-test-reporter') do
-    CodeClimate::TestReporter.start
-  end
-
   # Code coverage exclusions
   SimpleCov.start do
     # SimpleCov configuration
