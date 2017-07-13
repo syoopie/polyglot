@@ -28,6 +28,7 @@ class Coursemology::Polyglot::Language
     autoload :Python
     autoload :JavaScript
     autoload :CPlusPlus
+    autoload :Java
   end
 
   # Marks the current class as a concrete language.
