@@ -28,9 +28,9 @@ programming languages supported in Coursemology.
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'codeclimate-test-reporter'
 
-  spec.add_dependency 'activesupport', '>= 4.2', '<= 5.1'
+  spec.add_dependency 'activesupport', '>= 4.2', '< 5.2'
 
   # For autoloading in Rails applications, as well as the Ace modes inclusion. Keep this as the
   # same as ActiveSupport version.
-  spec.add_development_dependency 'railties', '>= 4.2', '<= 5.1'
+  spec.add_development_dependency 'railties', '>= 4.2', '< 5.2'
 end
