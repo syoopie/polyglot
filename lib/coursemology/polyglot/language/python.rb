@@ -22,7 +22,7 @@ class Coursemology::Polyglot::Language::Python < Coursemology::Polyglot::Languag
     concrete_language 'Python 3.7', docker_image: 'python:3.7'
   end
 
-  class Python3Point7 < Coursemology::Polyglot::Language::Python
+  class Python3Point9 < Coursemology::Polyglot::Language::Python
     concrete_language 'Python 3.9', docker_image: 'python:3.9'
   end
 end
