@@ -44,3 +44,13 @@ The SQL command below summarizes the necessary changes, to be run *right before*
 ```
 UPDATE polyglot_languages SET type = 'Coursemology::Polyglot::Language::Java::Java8', name = 'Java 8'  where type = 'Coursemology::Polyglot::Language::Java';
 ```
+
+### Updating the gem
+
+You will need the login credentials for `coursemology` to push the updated gem to [rubygems](https://rubygems.org/gems/coursemology-polyglot).
+
+```sh
+gem build coursemology-polyglot
+gem push coursemology-polyglot-<version>.gem
+rm coursemology-polyglot-*.gem
+```
