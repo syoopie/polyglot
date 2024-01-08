@@ -43,4 +43,10 @@ RSpec.describe Coursemology::Polyglot::Language::Python do
       expect(subject.class.display_name).to eq('Python 3.10')
     end
   end
+
+  describe Coursemology::Polyglot::Language::Python::Python3Point12 do
+    it 'returns the correct display name' do
+      expect(subject.class.display_name).to eq('Python 3.12')
+    end
+  end
 end
