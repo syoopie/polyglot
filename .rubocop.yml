@@ -6,8 +6,8 @@ AllCops:
     - '**/Gemfile'
     - '**/Rakefile'
   Exclude:
-   - 'vendor/bundle/**/*'
-  TargetRubyVersion: 3.0.4
+    - 'vendor/bundle/**/*'
+  TargetRubyVersion: 3.0
 
 Metrics/LineLength:
   Max: 100
@@ -21,7 +21,7 @@ Layout/DotPosition:
 Style/Documentation:
   Enabled: false
 
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
 Style/ParallelAssignment:
@@ -35,6 +35,3 @@ Style/WordArray:
 
 Style/RegexpLiteral:
   AllowInnerSlashes: true
-
-Style/ClassAndModuleChildren:
-  EnforcedStyle: compact
