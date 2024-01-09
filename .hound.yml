@@ -1,8 +1,8 @@
-ruby:
+fail_on_violations: true
+
+rubocop:
   config_file: .rubocop.yml
+  version: 1.22.1
 
-java_script:
-  config_file: .jshintrc
-
-scss:
-  config_file: .scss-lint.yml
+javascript:
+  enabled: false

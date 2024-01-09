@@ -100,10 +100,10 @@ Style/WhenThen:
 Lint/EachWithObjectArgument:
   Enabled: true
 
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Enabled: true
 
-Lint/LiteralInCondition:
+Lint/LiteralAsCondition:
   Description: Checks of literals used in conditions.
   Enabled: true
 
