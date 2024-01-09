@@ -8,4 +8,8 @@ class Coursemology::Polyglot::Language::Java < Coursemology::Polyglot::Language
   class Java11 < Coursemology::Polyglot::Language::Java
     concrete_language 'Java 11', docker_image: 'java:11'
   end
+
+  class Java17 < Coursemology::Polyglot::Language::Java
+    concrete_language 'Java 17', docker_image: 'java:17'
+  end
 end
