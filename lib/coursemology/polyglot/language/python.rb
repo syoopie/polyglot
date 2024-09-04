@@ -30,6 +30,10 @@ class Coursemology::Polyglot::Language::Python < Coursemology::Polyglot::Languag
     concrete_language 'Python 3.10', docker_image: 'python:3.10'
   end
 
+  class Python3Point11 < Coursemology::Polyglot::Language::Python
+    concrete_language 'Python 3.11', docker_image: 'python:3.11'
+  end
+
   class Python3Point12 < Coursemology::Polyglot::Language::Python
     concrete_language 'Python 3.12', docker_image: 'python:3.12'
   end
